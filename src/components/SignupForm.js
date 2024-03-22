@@ -61,7 +61,7 @@ const SignupForm = () => {
      userData.imgUrl = imageUrl; 
     try {
       // Call your API to update the database
-      const response = await fetch('http://localhost:4000/register', {
+      const response = await fetch('https://backend-maxlance.onrender.com/register', {
         method: 'POST',
         body: JSON.stringify(userData),
         headers: {

@@ -23,7 +23,7 @@ function HomePage() {
     // Function to fetch user details from the backend
     const fetchUserDetails = async () => {
         try {
-            const response = await fetch('http://localhost:4000/user/details', {
+            const response = await fetch('https://backend-maxlance.onrender.com/user/details', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -39,7 +39,7 @@ function HomePage() {
     // Function to fetch items from the backend
     const fetchItems = async () => {
         try {
-            const response = await fetch('http://localhost:4000/items', {
+            const response = await fetch('https://backend-maxlance.onrender.com/items', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -55,7 +55,7 @@ function HomePage() {
     // Function to handle item creation
     const handleCreateItem = async () => {
         try {
-            const response = await fetch('http://localhost:4000/items', {
+            const response = await fetch('https://backend-maxlance.onrender.com/items', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ function HomePage() {
     // Function to handle item deletion
     const handleDeleteItem = async (itemId) => {
         try {
-            const response = await fetch(`http://localhost:4000/items/${itemId}`, {
+            const response = await fetch(`https://backend-maxlance.onrender.com/items/${itemId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
