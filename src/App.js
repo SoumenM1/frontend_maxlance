@@ -17,7 +17,7 @@ const App = () => {
     <Routes>
       <Route path="/login" element={<LoginForm onLogin={handleLogin}/>} />
       <Route path="/register" element={<SignupForm />} />
-      <Route path="https://soumenmernapp.netlify.app/" element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />} />
+      <Route path="/" element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />} />
     </Routes>
   </Router>
   );
