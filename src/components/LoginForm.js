@@ -18,6 +18,29 @@ const history = useNavigate()
   const handleSignupClick = () => {
     history('/register');
   };
+  const handleForgotPasswordClick = async () => {
+    try {
+        const userEmail = prompt('Please enter your email:');
+        if (!userEmail) return; // User canceled or entered empty email
+        
+        const response = await fetch('https://backend-maxlance.onrender.com/forgot-password', {
+            method: 'POST',
+            body: JSON.stringify({ email: userEmail }), // Pass user-entered email as an object
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const data = await response.json();
+        if (data.data) {
+            setMessage('Please check your email to reset your password');
+        } else {
+            setMessage('Something went wrong. Please try again later.');
+        }
+    } catch (error) {
+        console.error('Error sending forgot password request:', error);
+        setMessage('An error occurred. Please try again later.');
+    }
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,10 +91,13 @@ const history = useNavigate()
           </div>
           <div className="field button">
             <input type="submit" name="submit" value="Continue to Login" />
+            <button id='fbutton' onClick={handleForgotPasswordClick}>Forgot Password?</button>
           </div>
           {message && <div className="message">{message}</div>}
         </form>
-        <div className="link">Not yet signed up? <button onClick={handleSignupClick}>Signup now</button></div>
+        <div className="link">
+          Not yet signed up? <button onClick={handleSignupClick}>Signup now</button>
+        </div>
       </section>
     </div>
   );
