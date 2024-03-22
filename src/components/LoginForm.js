@@ -68,7 +68,7 @@ const history = useNavigate()
           </div>
           {message && <div className="message">{message}</div>}
         </form>
-        <div className="link">Not yet signed up? <a href="/register">Signup now</a></div>
+        <div className="link">Not yet signed up? <a href="https://soumenmernapp.netlify.app/register">Signup now</a></div>
       </section>
     </div>
   );
