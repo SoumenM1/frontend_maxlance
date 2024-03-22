@@ -15,6 +15,9 @@ const history = useNavigate()
       [name]: value
     });
   };
+  const handleSignupClick = () => {
+    history('/register');
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,7 +71,7 @@ const history = useNavigate()
           </div>
           {message && <div className="message">{message}</div>}
         </form>
-        <div className="link">Not yet signed up? <a href="https://soumenmernapp.netlify.app/register">Signup now</a></div>
+        <div className="link">Not yet signed up? <button onClick={handleSignupClick}>Signup now</button></div>
       </section>
     </div>
   );
